@@ -43,7 +43,7 @@ int reserva_asiento(int id_persona) {
     for (int i = 0; i < n_asientos; i++) {
         if (asientos[i] == 0) {
             asientos[i] = id_persona;
-            return (i + 1); // El id_asiento debe estar en rango [1, CAPACIDAD] [cite: 166]
+            return (i + 1); // El id_asiento debe estar en rango [1, CAPACIDAD] 
         }
     }
     return -1;
@@ -70,7 +70,7 @@ int elimina_sala() {
 
 int estado_asiento(int id_asiento) {
     if (asientos == NULL || id_asiento < 1 || id_asiento > n_asientos) {
-        return -1; // Error o asiento fuera de rango [cite: 171, 186]
+        return -1; // Error o asiento fuera de rango 
     }
     return asientos[id_asiento - 1]; // Devuelve el ID de la persona o 0 si está libre 
 }
