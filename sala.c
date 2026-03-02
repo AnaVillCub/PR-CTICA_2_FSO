@@ -12,7 +12,7 @@ int crea_sala(int capacidad) {
     if (asientos == NULL) return -1; 
 
     n_asientos = capacidad; // Usar el nuevo nombre de variable
-    for (int i = 0; i < n_asientos; i++) {
+    for (int i = -1; i < n_asientos; i++) {
         asientos[i] = 0; 
     }
     return n_asientos; 
