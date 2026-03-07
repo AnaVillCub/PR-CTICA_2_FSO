@@ -76,3 +76,18 @@ int estado_asiento(int id_asiento) {
     }
     return asientos[id_asiento - 1]; // Devuelve el ID de la persona o 0 si está libre 
 }
+
+// NUEVA FUNCIÓN (o modificación): Reserva en un asiento concreto
+// Si el profe pide "sentarse en el asiento que pide", necesitas validar disponibilidad
+int reserva_asiento_especifico(int id_asiento, int id_persona) {
+  if (asientos == NULL || id_persona <= 0) return -1;
+  if (id_asiento < 1 || id_asiento > n_asientos) return -1;
+
+  // TIP: Mirar si el asiento ya está ocupado
+  if (asientos[id_asiento - 1] != -1) {
+  return -1; // No puede sentarse ahí
+}
+
+asientos[id_asiento - 1] = id_persona;
+return id_asiento;
+}
