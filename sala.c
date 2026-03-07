@@ -6,6 +6,8 @@ static int* asientos = NULL;
 static int n_asientos = 0;
 
 int crea_sala(int capacidad) {
+    // No permitir crear una sala si ya existe una
+    // No permitir capacidad negativa o cero
     if (asientos != NULL || capacidad <= 0) return -1; 
 
     asientos = (int*) malloc(capacidad * sizeof(int));
@@ -46,7 +48,7 @@ int reserva_asiento(int id_persona) {
             return (i + 1); // El id_asiento debe estar en rango [1, CAPACIDAD] 
         }
     }
-    return -1;
+    return -1; // Sala llena
 }
 
 int libera_asiento(int id_asiento) {
