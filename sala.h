@@ -13,5 +13,6 @@ int estado_asiento(int id_asiento);
 int asientos_libres();
 int asientos_ocupados();
 int capacidad_sala();
+int reserva_asiento_especifico(int id_asiento, int id_persona);
 
 #endif
