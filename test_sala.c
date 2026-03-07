@@ -52,3 +52,30 @@ int main() // <--- Añade 'int'
 	puts("Batería de test completa.");
     return 0; // <--- Añade el retorno
 }
+
+void test_TipsProfesor() {
+INICIO_TEST("Tips del Profesor (Robustez)");
+
+// 1. Intentar crear sala con capacidad negativa
+DebeSerCierto(crea_sala(-10) == -1);
+
+// 2. Crear sala legal
+crea_sala(10);
+
+// 3. Intentar crear OTRA sala sin borrar la anterior
+DebeSerCierto(crea_sala(5) == -1);
+
+// 4. Intentar reservar asiento con ID de persona inválido (negativo)
+DebeSerCierto(reserva_asiento(-5) == -1);
+
+// 5. Intentar liberar un asiento que no existe (ej. asiento 999)
+DebeSerCierto(libera_asiento(999) == -1);
+
+// 6. Test de ocupación: Sentar a alguien y que otro no pueda quitarle el sitio
+reserva_asiento(100); // Se sienta en el 1
+// Si implementaste reserva_asiento_especifico:
+// DebeSerCierto(reserva_asiento_especifico(1, 200) == -1);
+
+elimina_sala();
+FIN_TEST("Tips del Profesor");
+}
